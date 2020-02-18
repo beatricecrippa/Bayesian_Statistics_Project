@@ -62,22 +62,37 @@ Floder "Model2":
 Solidification problems in metal additive manufacturing may arise also if the next layer of powder Is set even if the previous one hasn’t solidified yet: indeed, if we add powder on a very hot base, this will start to melt in the corresponding spots, and another passage of the laser on it may cause burns. In this case the next intensity value would be very different from the previous one and it is unpredictable without further information, while if we are in a non-critical spot the intensity values wouldn’t vary too much from one interval to the other and the dependence on the previous observation would be almost linear.
 We have decided to monitor the intensity values through an autoregressive model, with parameter in (-1,1).
 Here we consider each pixel independent of the others and we want to describe the mean intensity in every interval with a linear dependence on the previous observation:
+
 V_pt= α_p V_(p,t-1)+ε_pt,       ε_pt  ~iid N(0,σ^2)
+
 Where the regression parameter is once again dependent on the geometrical features of our image: 
-α_p=2/(1+e^(-ξ_p ) )-1=tanh⁡〖( ξ_p/2  )〗
+
+α_p=2/(1+e^(-ξ_p ) )-1=tanh⁡( ξ_p/2  )
+
 This is a sigmoidal transformation of the logit parameter ξ_p , described in the previous model, so that its range is (-1,1).
 We have decided to make use of the geometrical properties because we suppose that high intensities will lead to burning problems, and the critical points for burning are related to the position and described by this parameter.
 
 Conditionally to the previous observed one, each intensity value is distributed as follows:
 
 V_p1 |α_p,σ^2  ~ N(μ_0,σ^2)
-V_pj | V_(p,j-1),α_p,σ^2  ~ N(α_p^(j-1) V_(p,j-1),σ^2 )        ∀ j=2,3,…,n_(p_tot )
+
+V_pj | V_(p,j-1),α_p,σ^2  ~ N(α_p^(j-1) V_(p,j-1),σ^2 )
+
+∀ j=2,3,…,n_(p_tot )
 
 The joint distribution we have simulated from is the following:
 
 V_p |α_p,σ^2   ~ N_(p_tot ) (μ_p,V_p)
 
-Where μ_p,i = α_p^(j-1) * μ_0 and Vp,i,i = σ^2, Vp,i,j = α_p^(j-1+i) ∀ j>i, Vp is symmetric.
+Where:
+
+μ_p,i = α_p^(j-1) * μ_0
+
+Vp,i,i = σ^2
+
+Vp,i,j = α_p^(j-1+i) ∀ j>i
+
+Vp is symmetric.
 σ^2 and μ_0 are fixed using their frequentist estimates (in file Data_extraction.R, folder "Processing").
 Note that, since α_p∈(-1,1), the correlation between two different observations decreases with their distance in time.
 
