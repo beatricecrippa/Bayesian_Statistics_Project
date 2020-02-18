@@ -102,10 +102,10 @@ We have monitored the logit parameters, so that we could understand how the geom
 In the files traceplot.png and ac.png you can observe that the traceplots are very thick and the autocorrelation stays in the range (-0.1, 0.1) and converges to 0.
 
 We have focues on four pixels:
-p <- 170   median value of geom and g
-p <- 147  min value of geom and max value of g 
-p <- 188  max value of geom
-p <- 406  min value of g
+- p <- 170   median value of geom and g
+- p <- 147  min value of geom and max value of g 
+- p <- 188  max value of geom
+- p <- 406  min value of g
 and in the corresponding traceplot.png ac.png, beta.png and alpha.png are represented, respectively, the traceplots, the autocorrelation plots and the empirical posterior densities of the logit parameters, and the empirical density of the autocorrelation regression parameter α_p.
 
 The most interesting result is about the parameter alpha, that describes the dependence among the observations. The probability of a negative value of alpha is null, and in particular for pixel 188 a large mass is put on values near 1, while if we consider the pixel 147 the mass is all concentrated at 0, and the probability of values greater than 0.05 is null. For pixel 406 high mass is put for values of α_p < 0.5, but not 0, while for pixel 170 there is high probabiliy for values grater than 0.5.
