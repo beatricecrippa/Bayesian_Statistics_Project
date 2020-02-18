@@ -111,17 +111,13 @@ and in the corresponding traceplot.png ac.png, beta.png and alpha.png are repres
 The most interesting result is about the parameter alpha, that describes the dependence among the observations. The probability of a negative value of alpha is null, and in particular for pixel 188 a large mass is put on values near 1, while if we consider the pixel 147 the mass is all concentrated at 0, and the probability of values greater than 0.05 is null. For pixel 406 high mass is put for values of α_p < 0.5, but not 0, while for pixel 170 there is high probabiliy for values grater than 0.5.
 
 Interpretation:
--	147 – min geom and max g – far from the vertex, high mass around the pixel
- Alpha depends more on G1 (angle amplitude) and it is almost zero: no dependence on the previous observation
+-	147 – min geom and max g (far from the vertex, high mass around the pixel) - Alpha depends more on geom (angle amplitude) and it is almost zero: no dependence on the previous observation
 
--	188 – max geom – high mass around the pixel
-Alpha depends mostly on g (distance from vertex) and it is very high: significant dependence on the previous observation
+-	188 – max geom (high mass around the pixel) - Alpha depends mostly on g (distance from vertex) and it is very high: significant dependence on the previous observation
 
--	170 – median geom and g
-Effect similar to 147 (little geom) but moderate
+-	170 – median geom and g - Effect similar to 147 (little geom) but moderate
 
--	406 – max g (max distance from a vertex)
-Effect similar to 188 (high geom)  but moderate
+-	406 – max g (max distance from a vertex) - Effect similar to 188 (high geom)  but moderate
 
 Conclusion:
 The least dependence on the previous observation is recovered when on the vertex, so in order to prevent burns we can assert that it is better to avoid acute angles and the boundary is critical, and in this case the negative dependence on g confirms that the points become less critical when far from the vertex.
