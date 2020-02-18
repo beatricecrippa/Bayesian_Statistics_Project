@@ -7,7 +7,7 @@ In the folder Dati Iniziali you can find the video, the Python code used for the
 Folder "Processing":
 
 In the initial dataset there are some 0 intensity values that do not correspond to the laser but to some sparkles, that cover the real intensity values: we have simulated these missing values via MCMC Gibbs sampling.
-The variable describing the intensity of pixel p at frame f is denoted by Vpf, and we have supposed that for every p the intensities at each frame are independent and identically distributed as a gaussian of mean mup and variance sigmap^2; mup is apriori distributed as a Gaussian of mean mu0p and variance tau^2. mu0p, tau^2 and sigmap^2 are fixed. (see slide 5 of the presentation workshop3.pdf for the mathematical description)
+The variable describing the intensity of pixel p at frame f is denoted by Vpf, and we have supposed that for every p the intensities at each frame are independent and identically distributed as a gaussian of mean mup and variance sigmap^2; mup is apriori distributed as a Gaussian of mean mu0p and variance tau^2. mu0p, tau^2 and sigmap^2 are fixed. (see slide 5 of the presentation CrippaPanzeri.pdf for the mathematical description)
 Then we have performed a rotation on the coordinates so that we got the same image as in the video, and performed a dimensionality reduction on the dataset by considering only the top-right angle of the triangle (from 996 pixels to 420).
 
 This simulation is in the file Processing.R and the full datasets are Dataset_definitivo_gibbs.xlsx and Coordinates.xlsx, while the reduced ones are Dataset_cut_gibbs.xlsx and Coord_cut.xlsx.
